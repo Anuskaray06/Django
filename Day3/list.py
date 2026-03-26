@@ -1,0 +1,10 @@
+l=[23,98,35.64,18,45.6]
+print(l)
+l.append(56)
+print(l)
+l[0]=100
+print(l)
+print(min(l))
+print(max(l))
+l.sort()
+print(l)
