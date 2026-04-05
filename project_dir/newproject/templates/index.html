@@ -1,0 +1,134 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block body_attr %}style="background-color: #20c997; font-family: sans-serif;"{% endblock %}
+
+{% block content %}
+<style>
+    /* Styling for the modal (hidden by default) */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1000; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0,0,0,0.8); 
+    }
+
+    /* Modal Content Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Close Button */
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+        color: black;
+        text-decoration: none;
+    }
+
+    .clickable-row {
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .clickable-row:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div style="text-align: center; margin-bottom: 30px;">
+    <h2>Welcome to Django Website</h2>
+    <p>This is a Simple Django website.</p>
+</div>
+
+<table style="width: 80%; margin: 0 auto; border-collapse: collapse;">
+    <tr class="clickable-row" 
+        data-title="tshirt" 
+        data-image="{% static 'images/tshirt.jpg' %}" 
+        data-desc="Pure cotton, highly breathable and very comfortable. Perfect for everyday wear." 
+        data-price="299 rs" 
+        onclick="openModal(this)">
+        
+        <td style="width: 50%; background-color: #c8a2c8; color: white; text-align: center; padding: 20px; border: 2px solid #10b88f;">
+            <h3 style="margin-top: 0;">tshirt</h3>
+            <p>this a tshirt</p>
+            <p style="margin-bottom: 0;">299 rs</p>
+        </td>
+        <td style="width: 50%; background-color: #e3f0c1; text-align: center; padding: 10px; border: 2px solid #10b88f;">
+            <img src="{% static 'images/tshirt.jpg' %}" alt="T-Shirt" style="max-height: 150px;">
+        </td>
+    </tr>
+    <tr class="clickable-row" 
+        data-title="Laptop" 
+        data-image="{% static 'images/laptop.jpg' %}" 
+        data-desc="High-performance HP Pavilion laptop with 16GB RAM and fast SSD storage. Great for gaming and productivity." 
+        data-price="30,000 rs" 
+        onclick="openModal(this)">
+        
+        <td style="width: 50%; background-color: #c8a2c8; color: white; text-align: center; padding: 20px; border: 2px solid #10b88f;">
+            <h3 style="margin-top: 0;">Laptop</h3>
+            <p>this a laptop</p>
+            <p style="margin-bottom: 0;">30,000 rs</p>
+        </td>
+        <td style="width: 50%; background-color: #8dae92; text-align: center; padding: 10px; border: 2px solid #10b88f;">
+            <img src="{% static 'images/laptop.jpg' %}" alt="Laptop" style="max-height: 150px;">
+        </td>
+    </tr>
+</table>
+
+<!-- The Modal -->
+<div id="productModal" class="modal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation();">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle" style="color: #333; margin-top: 0;">Product Title</h2>
+    <img id="modalImg" src="" alt="Product Image" style="width: 100%; max-width: 350px; height: auto; margin: 15px 0; border-radius: 8px;">
+    <p id="modalDesc" style="font-size: 1.1em; color: #555;">Product Description</p>
+    <h3 id="modalPrice" style="color: #20c997; font-size: 1.4em;">Pricing</h3>
+  </div>
+</div>
+
+<script>
+    function openModal(element) {
+        // Read data attributes from the clicked element
+        var title = element.getAttribute('data-title');
+        var imageSrc = element.getAttribute('data-image');
+        var description = element.getAttribute('data-desc');
+        var price = element.getAttribute('data-price');
+
+        // Populate modal fields
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalImg').src = imageSrc;
+        document.getElementById('modalDesc').innerText = description;
+        document.getElementById('modalPrice').innerText = price;
+        
+        // Show the modal
+        document.getElementById('productModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('productModal').style.display = "none";
+    }
+</script>
+{% endblock %}
