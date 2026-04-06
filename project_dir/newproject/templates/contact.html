@@ -1,25 +1,37 @@
 {% extends 'website/layout.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block content %}
-<div style="background-color: #f3f0ff; padding: 100px; border-radius: 8px; max-width: 600px; margin: 40px auto; min-height: 100vh;">
-    <div
-    
-    <h2 style="color: #6c5ce7;">About</h2>
 
-    <p style="color: #2d3436; font-size: 1.05rem;">
-        This is the contact page.
-    </p>
+<div style="
+    background: linear-gradient(135deg, #f3f0ff, #e8f0ff);
+    padding: 60px 50px;
+    border-radius: 12px;
+    max-width: 650px;
+    margin: 50px auto;
+    min-height: 80vh;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+">
 
-    <hr style="border: 1px solid #dfe6e9; margin: 15px 0;">
+```
+<h2 style="color: #5f4dee; margin-bottom: 10px;">Contact Us</h2>
 
-    <p style="color: #0984e3;">
-        Hey there! You can contact us at abc@gmail.con
-    </p>
-    <p style="color: #0984e3;"> 
-        Or you can also call us at 1234567890.
-    </p>
+<p style="color: #2d3436; font-size: 1.05rem; line-height: 1.6;">
+    Feel free to reach out to us for any queries or support.
+</p>
+
+<hr style="border: none; height: 1px; background: #dcdde1; margin: 20px 0;">
+
+<p style="color: #0984e3; line-height: 1.6;">
+    You can email us at <strong>abc@gmail.com</strong> for any questions or feedback.
+</p>
+
+<p style="color: #0984e3; line-height: 1.6;">
+    Alternatively, you can call us at <strong>1234567890</strong>.
+</p>
+```
 
 </div>
+
 {% endblock %}
