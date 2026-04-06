@@ -3,23 +3,37 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-<div style="background-color: #f3f0ff; padding: 100px; border-radius: 8px; max-width: 600px; margin: 40px auto; min-height: 100vh;">
-    <div
-    
-    <h2 style="color: #6c5ce7;">About</h2>
 
-    <p style="color: #2d3436; font-size: 1.05rem;">
-        This is the about page.
-    </p>
+<div style="
+    background: linear-gradient(135deg, #f3f0ff, #e8f0ff);
+    padding: 60px 50px;
+    border-radius: 12px;
+    max-width: 650px;
+    margin: 50px auto;
+    min-height: 80vh;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+">
 
-    <hr style="border: 1px solid #dfe6e9; margin: 15px 0;">
+```
+<h2 style="color: #5f4dee; margin-bottom: 10px;">About This Project</h2>
 
-    <p style="color: #0984e3;">
-        This is a basic Django project which shows products with their prices and descriptions. 
-    </p>
-    <p style="color: #0984e3;"> 
-        It also has an about page and a contact page.
-    </p>
+<p style="color: #2d3436; font-size: 1.05rem; line-height: 1.6;">
+    This page gives a brief overview of the website and its purpose.
+</p>
+
+<hr style="border: none; height: 1px; background: #dcdde1; margin: 20px 0;">
+
+<p style="color: #0984e3; line-height: 1.6;">
+    This is a simple Django-based web application designed to display products 
+    along with their pricing and descriptions in a clean and interactive layout.
+</p>
+
+<p style="color: #0984e3; line-height: 1.6;">
+    In addition to the product section, the project also includes dedicated 
+    pages such as About and Contact to provide more information and usability.
+</p>
+```
 
 </div>
+
 {% endblock %}
